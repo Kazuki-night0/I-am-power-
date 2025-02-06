@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // サウンドのロード
         const clickSound = new Audio("sound/sound1.mp3");
 
-
         clickButton.addEventListener("click", function () {
             score++;
             scoreElement.textContent = score;
@@ -82,5 +81,17 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("finalScore").textContent = score;
         document.getElementById("bestScoreResult").textContent = bestScore;
         document.getElementById("tapsPerSecond").textContent = tapsPerSecond;
+
+        // サウンド再生
+        const scoreSound = new Audio("sound/score.mp3");
+        const bestSound = new Audio("sound/score.mp3");
+
+        // スコア音を再生し、その後に条件に応じてベストスコア音を再生
+        scoreSound.play();
+        scoreSound.onended = function () {
+            if (parseInt(score) === parseInt(bestScore)) {
+                bestSound.play();
+            }
+        };
     }
 });
