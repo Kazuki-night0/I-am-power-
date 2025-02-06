@@ -73,3 +73,20 @@ button:hover {
     0% { transform: translateX(-5px); }
     100% { transform: translateX(5px); }
 }
+
+img {
+    width: 150px; /* 画像の幅を50pxに縮小 */
+    height: auto; /* アスペクト比を維持 */
+    position: absolute;
+    display: block; /* ブロック要素にする */
+    margin: 10px auto; /* 上下10pxの余白をつけて中央配置 */
+}
+#stalker {
+    position: fixed;  /* 画面内で固定 */
+    top: 0;
+    left: 0;
+    width: 50px;  /* 画像サイズ */
+    height: auto;
+    pointer-events: none; /* クリックを無効化（ボタン操作を邪魔しない） */
+    z-index: 1000; /* 他の要素より上に表示 */
+}
