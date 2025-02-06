@@ -1,8 +1,7 @@
-@charset "UTF-8";
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #00d9ff;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
     display: flex;
@@ -37,16 +36,83 @@ button:hover {
     background-color: #e64a19;
 }
 
+#clickButton {
+    position: relative;
+    margin-top: 50px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    z-index: 999;
+}
+
+#clickButton:hover {
+    background-color: #e64a19;
+}
+
 #score, #timer {
     font-weight: bold;
     color: #ff5722;
     font-size: 22px;
+    margin-bottom: 20px;
 }
+
 .fit-picture {
-    position: fixed;  /* 画面の固定位置に配置 */
-    top: 10px;  /* 上端から10px */
-    left: 10px; /* 左端から10px */
-    width: 150px; /* 画像サイズを適宜調整 */
-    height: auto; /* アスペクト比を維持 */
-    z-index: 1000; /* 他の要素より前面に配置 */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 150px;
+    height: auto;
+    transition: transform 0.3s ease, left 0.3s ease, top 0.3s ease;
+    transform-origin: left top;
+    z-index: 1;
+}
+
+#powerMessage {
+    font-size: 32px;
+    font-weight: bold;
+    color: yellow;
+    background-color: red;
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 10px; /* 上部に配置 */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 100;  /* 他の要素（画像）より前面に配置 */
+}
+
+.glow-effect-background {
+    animation: glowBackground 0.5s infinite alternate;
+}
+
+@keyframes glowBackground {
+    0% { background-color: red; }
+    100% { background-color: darkred; }
+}
+
+.hidden {
+    opacity: 0;
+}
+
+
+
+
+@keyframes glow {
+    0% { box-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0; }
+    50% { box-shadow: 0 0 20px #ff0, 0 0 40px #ff0, 0 0 60px #ff0; }
+    100% { box-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0; }
+}
+
+.glow-effect {
+    animation: glow 0.5s infinite alternate;
+    background-color: yellow !important;
+    color: black !important;
 }
