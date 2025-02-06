@@ -31,9 +31,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let isBlinking = false;
 
+        // サウンドのロード
+        const clickSound = new Audio("sound/sound1.mp3");
+
+
         clickButton.addEventListener("click", function () {
             score++;
             scoreElement.textContent = score;
+
+            // サウンドを再生
+            clickSound.currentTime = 0; // 再生位置をリセット
+            clickSound.play();
 
             // ベストスコアを超えたら更新中を点滅
             if (score > bestScore && !isBlinking) {
