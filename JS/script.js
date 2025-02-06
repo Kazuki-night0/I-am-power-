@@ -34,7 +34,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // サウンドのロード
         const clickSound = new Audio("sound/sound1.mp3");
 
+        let timerStarted = false; // タイマー開始フラグ
+
         clickButton.addEventListener("click", function () {
+            clickButton.textContent = '連打!!';
+
             score++;
             scoreElement.textContent = score;
 
@@ -48,28 +52,36 @@ document.addEventListener("DOMContentLoaded", function () {
                 bestScoreElement.textContent = "ベストスコア更新中!";
                 bestScoreElement.classList.add("blinking");
             }
+
+            // タイマーがまだ開始されていない場合
+            if (!timerStarted) {
+                timerStarted = true; // タイマー開始フラグを立てる
+                let timer = setInterval(() => {
+                    if (!timerStarted) return; // タイマー開始フラグが立っていない場合は処理を中断
+                    timeLeft--;
+                    timerElement.textContent = timeLeft;
+
+                    if (timeLeft <= 0) {
+                        clearInterval(timer);
+                        
+                        // スコアがベストスコアを超えていたら保存
+                    if (score > bestScore) {
+                        localStorage.setItem("bestScore", score);
+                    }
+
+                    // 1秒あたりの連打数を計算して保存
+                    const tapsPerSecond = (score / totalTime).toFixed(2);
+                    localStorage.setItem("tapsPerSecond", tapsPerSecond);
+
+                    localStorage.setItem("score", score);
+                    window.location.href = "result.html"; // 結果画面に遷移
+                    }
+                }, 1000);
+            }
+
         });
 
-        let timer = setInterval(() => {
-            timeLeft--;
-            timerElement.textContent = timeLeft;
 
-            if (timeLeft <= 0) {
-                clearInterval(timer);
-
-                // スコアがベストスコアを超えていたら保存
-                if (score > bestScore) {
-                    localStorage.setItem("bestScore", score);
-                }
-
-                // 1秒あたりの連打数を計算して保存
-                const tapsPerSecond = (score / totalTime).toFixed(2);
-                localStorage.setItem("tapsPerSecond", tapsPerSecond);
-
-                localStorage.setItem("score", score);
-                window.location.href = "result.html"; // 結果画面に遷移
-            }
-        }, 1000);
     }
 
     // 結果画面の処理
@@ -115,10 +127,10 @@ document.addEventListener("DOMContentLoaded", function () {
             imageElement.style.top = `${10 + score * 2}px`;
             imageElement.style.transform = `scale(${scale})`;
             imageElement.style.transform = `scaleY(0.2)`;  // 縦方向に縮小（0.2倍）
-            // 0.02秒後に元の縦のスケールに戻す
+            // 0.05秒後に元の縦のスケールに戻す
             setTimeout(() => {
                 imageElement.style.transform = `scale(${scale})`;  // 元のスケールに戻す
-            }, 50);  // 20ms後に実行
+            }, 50);  // 50ms後に実行
         } else {
             // 中央に固定し、拡大を続ける
             imageElement.style.left = "50%";
