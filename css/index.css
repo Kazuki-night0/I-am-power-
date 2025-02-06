@@ -3,35 +3,37 @@
 /* ページ全体のスタイル */
 body {
     font-family: 'Noto Sans JP', Arial, sans-serif;
-    background: linear-gradient(135deg, #4c9aff, #7b68ee); /* 青系グラデーション */
+    background: linear-gradient(135deg, #4c9aff, #7b68ee);
     text-align: center;
     color: white;
     height: 100vh;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* 画面上部寄りに調整 */
+    justify-content: center;
     align-items: center;
-    padding-top: 50px; /* 上部に余白を追加 */
+    position: relative;
 }
 
-/* タイトル */
+/* タイトル（h1）の位置調整 */
 h1 {
-    font-size: 4rem; /* タイトルを大きく */
-    margin-bottom: 40px; /* 下の要素との間隔を広げる */
+    font-size: 4rem;
+    margin-top: -20px; /* 位置を上げる */
+    margin-bottom: 40px;
     text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
 }
 
 /* ボタンのスタイル */
 button {
-    font-size: 1.8rem; /* 文字サイズを大きく */
-    padding: 20px 50px; /* ボタンを大きめに */
+    font-size: 2rem;
+    padding: 25px 60px;
     border: none;
-    border-radius: 12px;
+    border-radius: 15px;
     background-color: #ff4500;
     color: white;
     cursor: pointer;
     transition: transform 0.2s, background 0.3s;
-    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* ボタンのホバーアニメーション */
@@ -43,4 +45,68 @@ button:hover {
 /* クリック時のエフェクト */
 button:active {
     transform: scale(0.95);
+}
+
+/* 枠の画像 */
+.frame-img {
+    position: absolute;
+    width: 70px; /* 画像サイズ */
+    height: 70px;
+    z-index: 1;
+}
+
+/* 四隅の画像 */
+.corner-img {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+/* 左上 */
+.corner-top-left {
+    top: 0px;
+    left: 0px;
+}
+
+/* 右上 */
+.corner-top-right {
+    top: 0px;
+    right: 0px;
+}
+
+/* 左下 */
+.corner-bottom-left {
+    bottom: 0px;
+    left: 0px;
+}
+
+/* 右下 */
+.corner-bottom-right {
+    bottom: 0px;
+    right: 0px;
+}
+
+/* 上枠 */
+.frame-top {
+    top: 0px;
+    left: 0px;
+}
+
+/* 下枠 */
+.frame-bottom {
+    bottom: 0px;
+    left: 0px;
+}
+
+/* 左枠 */
+.frame-left {
+    left: 0px;
+    top: 0px;
+}
+
+/* 右枠 */
+.frame-right {
+    right: 0px;
+    top: 0px;
 }
