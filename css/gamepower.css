@@ -1,0 +1,52 @@
+@charset "UTF-8";
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #00d9ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e64a19;
+}
+
+#score, #timer {
+    font-weight: bold;
+    color: #ff5722;
+    font-size: 22px;
+}
+.fit-picture {
+    position: fixed;  /* 画面の固定位置に配置 */
+    top: 10px;  /* 上端から10px */
+    left: 10px; /* 左端から10px */
+    width: 150px; /* 画像サイズを適宜調整 */
+    height: auto; /* アスペクト比を維持 */
+    z-index: 1000; /* 他の要素より前面に配置 */
+}
