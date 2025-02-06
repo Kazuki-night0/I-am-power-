@@ -45,7 +45,7 @@ h1 {
 
 /* ボタンごとの色設定 */
 .time-select[data-time="30"] {
-    background-color: #ff4500; /* 赤 */
+    background-color: #32cd32; /* 緑 */
 }
 
 .time-select[data-time="60"] {
@@ -53,7 +53,7 @@ h1 {
 }
 
 .time-select[data-time="120"] {
-    background-color: #32cd32; /* 緑 */
+    background-color: #ff4500; /* 赤 */
 }
 
 /* ホバーアニメーション */
