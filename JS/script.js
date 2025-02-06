@@ -114,6 +114,11 @@ document.addEventListener("DOMContentLoaded", function () {
             imageElement.style.left = `${10 + score * 2}px`;
             imageElement.style.top = `${10 + score * 2}px`;
             imageElement.style.transform = `scale(${scale})`;
+            imageElement.style.transform = `scaleY(0.2)`;  // 縦方向に縮小（0.2倍）
+            // 0.02秒後に元の縦のスケールに戻す
+            setTimeout(() => {
+                imageElement.style.transform = `scale(${scale})`;  // 元のスケールに戻す
+            }, 50);  // 20ms後に実行
         } else {
             // 中央に固定し、拡大を続ける
             imageElement.style.left = "50%";
