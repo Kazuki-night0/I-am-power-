@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+/* ページ全体のスタイル */
+body {
+    font-family: 'Noto Sans JP', Arial, sans-serif;
+    background: linear-gradient(135deg, #4c9aff, #7b68ee); /* indexと同じ背景色 */
+    text-align: center;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 画面上部寄りに調整 */
+    align-items: center;
+    padding-top: 50px; /* 上部に余白を追加 */
+}
+
+/* タイトル */
+h1 {
+    font-size: 4rem; /* タイトルを大きく */
+    margin-bottom: 40px; /* 下の要素との間隔を広げる */
+    text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+/* ボタンコンテナ（横並び用） */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* ボタンの間隔 */
+    margin-top: 30px; /* 適度な余白を追加 */
+}
+
+/* ボタンのスタイル */
+.time-select {
+    font-size: 1.8rem; /* 文字サイズも少し大きく */
+    padding: 20px 50px; /* ボタンを大きめに */
+    border: none;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);
+    width: 200px;
+    text-align: center;
+}
+
+/* ボタンごとの色設定 */
+.time-select[data-time="30"] {
+    background-color: #ff4500; /* 赤 */
+}
+
+.time-select[data-time="60"] {
+    background-color: #ffa500; /* オレンジ */
+}
+
+.time-select[data-time="120"] {
+    background-color: #32cd32; /* 緑 */
+}
+
+/* ホバーアニメーション */
+.time-select:hover {
+    filter: brightness(1.2);
+    transform: scale(1.1);
+}
+
+/* クリック時のエフェクト */
+.time-select:active {
+    transform: scale(0.95);
+}
