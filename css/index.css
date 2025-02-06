@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+/* ページ全体のスタイル */
+body {
+    font-family: 'Noto Sans JP', Arial, sans-serif;
+    background: linear-gradient(135deg, #4c9aff, #7b68ee); /* 青系グラデーション */
+    text-align: center;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 画面上部寄りに調整 */
+    align-items: center;
+    padding-top: 50px; /* 上部に余白を追加 */
+}
+
+/* タイトル */
+h1 {
+    font-size: 4rem; /* タイトルを大きく */
+    margin-bottom: 40px; /* 下の要素との間隔を広げる */
+    text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+/* ボタンのスタイル */
+button {
+    font-size: 1.8rem; /* 文字サイズを大きく */
+    padding: 20px 50px; /* ボタンを大きめに */
+    border: none;
+    border-radius: 12px;
+    background-color: #ff4500;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ボタンのホバーアニメーション */
+button:hover {
+    background-color: #ff6347;
+    transform: scale(1.1);
+}
+
+/* クリック時のエフェクト */
+button:active {
+    transform: scale(0.95);
+}
