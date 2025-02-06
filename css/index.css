@@ -15,9 +15,10 @@ body {
     position: relative;
 }
 
-/* タイトル */
+/* タイトル（h1）の位置調整 */
 h1 {
     font-size: 4rem;
+    margin-top: -20px; /* 位置を上げる */
     margin-bottom: 40px;
     text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
 }
