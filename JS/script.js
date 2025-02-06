@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // サウンド再生
         const scoreSound = new Audio("sound/score.mp3");
-        const bestSound = new Audio("sound/score.mp3");
+        const bestSound = new Audio("sound/best_score.mp3");
 
         // スコア音を再生し、その後に条件に応じてベストスコア音を再生
         scoreSound.play();
