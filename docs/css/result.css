@@ -1,0 +1,92 @@
+/* style.css */
+body {
+    font-family: 'Arial Black', sans-serif;
+    text-align: center;
+    background: linear-gradient(45deg, #ff0000, #ff8c00, #ff4500);
+    background-size: 400% 400%;
+    animation: backgroundFlow 5s infinite alternate;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 背景アニメーション */
+@keyframes backgroundFlow {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* タイトル（点滅アニメーション） */
+h1 {
+    font-size: 3em;
+    text-transform: uppercase;
+    animation: flicker 1s infinite alternate;
+    color: yellow;
+}
+
+/* 点滅するアニメーション */
+@keyframes flicker {
+    0% { opacity: 1; text-shadow: 0 0 10px yellow, 0 0 20px red; }
+    100% { opacity: 0.6; text-shadow: 0 0 20px red, 0 0 30px yellow; }
+}
+
+p {
+    font-size: 1.5em;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* スコア表示を炎っぽく */
+span {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ff4500, 0 0 20px #ff0000;
+}
+
+/* ボタンのデザイン */
+button {
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+/* ホバー時の振動エフェクト */
+button:hover {
+    background-color: #ff0000;
+    animation: shake 0.3s infinite alternate;
+}
+
+/* 振動するアニメーション */
+@keyframes shake {
+    0% { transform: translateX(-5px); }
+    100% { transform: translateX(5px); }
+}
+
+img {
+    width: 150px; /* 画像の幅を50pxに縮小 */
+    height: auto; /* アスペクト比を維持 */
+    position: absolute;
+    display: block; /* ブロック要素にする */
+    margin: 10px auto; /* 上下10pxの余白をつけて中央配置 */
+}
+#stalker {
+    position: fixed;  /* 画面内で固定 */
+    top: 0;
+    left: 0;
+    width: 50px;  /* 画像サイズ */
+    height: auto;
+    pointer-events: none; /* クリックを無効化（ボタン操作を邪魔しない） */
+    z-index: 1000; /* 他の要素より上に表示 */
+}
