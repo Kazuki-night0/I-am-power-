@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let score = 0;
         let timeLeft = parseInt(localStorage.getItem("gameTime")) || 30;
         let bestScore = parseInt(localStorage.getItem("bestScore")) || 0;
+        const totalTime = timeLeft;
 
         const timerElement = document.getElementById("timer");
         const scoreElement = document.getElementById("score");
@@ -53,8 +54,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (score > bestScore) {
                     localStorage.setItem("bestScore", score);
                 }
-                localStorage.setItem("score", score);
 
+                // 1秒あたりの連打数を計算して保存
+                const tapsPerSecond = (score / totalTime).toFixed(2);
+                localStorage.setItem("tapsPerSecond", tapsPerSecond);
+
+                localStorage.setItem("score", score);
                 window.location.href = "result.html"; // 結果画面に遷移
             }
         }, 1000);
@@ -64,7 +69,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (document.getElementById("finalScore")) {
         const score = localStorage.getItem("score");
         const bestScore = localStorage.getItem("bestScore");
+        const tapsPerSecond = localStorage.getItem("tapsPerSecond");
+        
         document.getElementById("finalScore").textContent = score;
         document.getElementById("bestScoreResult").textContent = bestScore;
+        document.getElementById("tapsPerSecond").textContent = tapsPerSecond;
     }
 });
